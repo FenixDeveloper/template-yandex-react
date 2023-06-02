@@ -7,6 +7,17 @@ const meta: Meta<typeof Form> = {
 	component: Form,
 	tags: ['autodocs'],
 	argTypes: {},
+	args: {
+		title: 'Example 1',
+		fields: {
+			age: { type: 'number' },
+		},
+		value: {
+			name: 'Test',
+			age: 23,
+		},
+		onSubmit: (data) => console.log(data),
+	},
 };
 
 export default meta;
@@ -14,25 +25,5 @@ type Story = StoryObj<typeof Form>;
 type Case = StoryFn<typeof Form>;
 
 export const Default: Story = {
-	args: {
-		title: 'Example 1',
-		fields: [
-			{
-				name: 'name',
-				type: 'text',
-				value: 'first input',
-			},
-			{
-				name: 'name',
-				type: 'number',
-				value: 20,
-			},
-		],
-	},
+	args: {},
 };
-
-/*	
-export const Variants: Case = (props) => (<div className="storybook-case-wrapper">
-	<Form {...props} />
-</div>);
-*/
